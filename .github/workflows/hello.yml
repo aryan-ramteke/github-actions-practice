@@ -18,7 +18,14 @@ jobs:
               run: date
 
             - name: print triggered branch name
-              run: echo "triggered branch name : $GITHUB_REF_NAME"
+              run: echo "triggered branch name :" "$GITHUB_REF_NAME"
 
             - name: print triggered branch name
-              run: echo "triggered branch name : ${{ github.ref_name }}"
+              run: 'echo "triggered branch name : "$GITHUB_REF_NAME"'
+              
+            - name: print triggered branch name
+              run: echo "triggered branch name :"$GITHUB_REF_NAME"
+
+            - name: print triggered branch name
+              run: |
+                  echo "triggered branch name : ${{ github.ref_name }}"
