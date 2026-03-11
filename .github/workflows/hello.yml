@@ -37,4 +37,4 @@ jobs:
               run: echo "The OS is $RUNNER_OS"
 
             - name: incorrect command
-              run: echi "echo mispelled"
+              run: echo "echo mispelled"
