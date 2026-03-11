@@ -31,7 +31,7 @@ jobs:
                   echo "triggered branch name : ${{ github.ref_name }}"
 
             - name: list files
-              run: ls
+              run: ls -a
 
             - name: Runner's OS
-              run: lsbrelease -si
+              run: echo "The OS is $RUNNER_OS"
