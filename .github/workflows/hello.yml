@@ -13,3 +13,12 @@ jobs:
 
             - name: greet hello
               run: echo "Hello from GitHub Actions!"
+
+            - name: print current date and time
+              run: date
+
+            - name: print triggered branch name
+              run: echo "triggered branch name : $GITHUB_REF_NAME"
+
+            - name: print triggered branch name
+              run: echo "triggered branch name : ${{ github.ref_name }}"
