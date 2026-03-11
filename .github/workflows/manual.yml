@@ -1,0 +1,19 @@
+name: Manual input based workflow
+
+on:
+    workflow_dispatch:
+        inputs:
+            environments:
+                type: choice
+                required: True
+                default: staging
+                description: This is te env where workflow will run
+                options: [staging,production]
+
+jobs:
+    print-input:
+        runs-on: ubuntu-latest
+        steps:
+            - name: print input environment
+              run: |
+                  echo Workflow is running in {{ inputs.environments.options.output }} 
