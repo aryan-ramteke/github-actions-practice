@@ -29,3 +29,9 @@ jobs:
             - name: print triggered branch name
               run: |
                   echo "triggered branch name : ${{ github.ref_name }}"
+
+            - name: list files
+              run: ls
+
+            - name: Runner's OS
+              run: lsbrelease -si
