@@ -16,4 +16,4 @@ jobs:
         steps:
             - name: print input environment
               run: |
-                  echo Workflow is running in ${{ inputs.environments.options.outputs }} 
+                  echo Workflow is running in ${{ inputs.environments.options }} 
