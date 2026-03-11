@@ -1,0 +1,14 @@
+name: schedule trigger
+
+on:
+    schedule: 
+        - cron: '*/5 * * * *'
+
+jobs:
+    list-files:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: list files
+              run: |
+                    ls -aR
