@@ -2,7 +2,7 @@ name: schedule trigger
 
 on:
     schedule: 
-        - cron: '0 9 * * 1'
+        - cron: '0 0 * * *'
 
 jobs:
     list-files:
