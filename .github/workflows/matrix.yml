@@ -6,11 +6,12 @@ on:
 
 jobs:
     py-version-print:
-        runs-on: ubuntu-latest
+        runs-on: ${{ matrix.os }}
         strategy:
             fail-fast: False
             matrix: 
                 python-version: ['3.11','3.10','3.12']
+                os: ['ubuntu-latest','windows-latest']
         steps:
           - name: Set up Python ${{ matrix.python-version }}
             uses: actions/setup-python@v5
