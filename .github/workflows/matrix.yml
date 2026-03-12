@@ -4,16 +4,18 @@ on:
     push:
         branches: [main]
 
-
 jobs:
     py-version-print:
         runs-on: ubuntu-latest
-
+        strategy:
+            fail-fast: False
+            matrix: 
+                python-version: [3.11,3.10,3.12]
         steps:
-          - name: Set up Python 3.11
+          - name: Set up Python ${{ matrix.python-version }}
             uses: actions/setup-python@v5
             with:
-                python-version: '3.11' # Install specific version
+                python-version: ${{ matrix.python-version }} # Install specific version
 
           - name: print python version
             run: |
