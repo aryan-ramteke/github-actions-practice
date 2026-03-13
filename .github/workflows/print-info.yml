@@ -1,0 +1,26 @@
+name: print info in 3 os
+
+on:
+    push:
+        branches: [main]
+
+
+
+jobs:
+    ubuntu-job:
+        strategy:
+            matrix:
+                os: ['ubuntu-latest','windows-latest','macos-latest']
+        
+        runs-on: ${{ matrix.os }}
+
+        steps:
+            - name: print os name
+              run: |
+                    echo "The OS name is: $RUNNER_OS"
+            - name: Runner's hostname
+              run: |
+                    echo "hostname: $(hostname)"
+            - name: Current User
+              run: |
+                    echo "Current User: $(whoami)"
