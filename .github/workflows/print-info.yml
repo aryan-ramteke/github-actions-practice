@@ -26,7 +26,7 @@ jobs:
                     echo "Current User: $(whoami)"
             - name: tools-version 
               run: |
-                    echo "Docker version is: $(Docker --version)"
+                    echo "Docker version is: $(docker --version)"
                     echo "Python version is: $(python -V)"
                     echo "Node version is: $(node -v)"
                     echo "Git version is: $(git --version)"
