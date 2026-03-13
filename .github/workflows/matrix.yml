@@ -1,9 +1,9 @@
 name: strategy matrix
 
 on:
-    push:
-        branches: [main]
-
+    # push:
+    #     branches: [main]
+    workflow_dispatch:
 jobs:
     py-version-print:
         runs-on: ${{ matrix.os }}
