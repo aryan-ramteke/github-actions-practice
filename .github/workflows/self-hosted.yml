@@ -1,0 +1,18 @@
+name: self-hosted Runner
+
+on:
+    push:
+        branches: [main]
+
+jobs:
+    print-info:
+        runs-on: self-hosted
+        steps:
+            - name: hostname of self-hosted runner
+              run: |
+                    echo "hostname of self-hosted runner: $(hostname)"
+            - name: CWD
+              run: |
+                    echo "current work dir: $(pwd)"
+            - name: file create
+              run: touch aactin-file.txt
