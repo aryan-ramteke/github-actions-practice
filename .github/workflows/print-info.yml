@@ -8,12 +8,38 @@ on:
 
 jobs:
     ubuntu-job:
-        strategy:
-            matrix:
-                os: ['ubuntu-latest','windows-latest','macos-latest']
-        
-        runs-on: ${{ matrix.os }}
-
+        # strategy:
+        #     matrix:
+        #         os: ['ubuntu-latest','windows-latest','macos-latest']
+        #echo "The OS name is: ${{ runner.os }}"
+        # runs-on: ${{ matrix.os }}
+        runs-on: ubuntu-latest
+        steps:
+            - name: print os name
+              run: |
+                    echo "The OS name is: ${{ runner.os }}"
+            - name: Runner's hostname
+              run: |
+                    echo "hostname: $(hostname)"
+            - name: Current User
+              run: |
+                    echo "Current User: $(whoami)"
+    
+    macos-job:
+        runs-on: macos-latest
+        steps:
+            - name: print os name
+              run: |
+                    echo "The OS name is: ${{ runner.os }}"
+            - name: Runner's hostname
+              run: |
+                    echo "hostname: $(hostname)"
+            - name: Current User
+              run: |
+                    echo "Current User: $(whoami)"
+    
+    windows-job:
+        runs-on: windows-latest
         steps:
             - name: print os name
               run: |
