@@ -10,7 +10,7 @@ jobs:
         # name: todays-date
         runs-on: ubuntu-latest
         outputs:
-            date: ${{ steps.date }}
+            date: ${{ steps.date.outputs }}
         steps:
             - name: print today's date
               id: date
