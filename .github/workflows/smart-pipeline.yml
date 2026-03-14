@@ -1,0 +1,26 @@
+name: smart-pipeline
+
+on:
+  push
+
+jobs:
+    lint:
+      runs-on: ubuntu-latest
+      steps:
+        - name: syntax check
+          run: echo "linting check"
+
+    test:
+      runs-on: ubuntu-latest
+      steps:
+        - name: code test
+          run: echo "Testing code"
+
+    summary:
+      needs: [test,lint]
+      runs-on: ubuntu-latest
+      steps:
+        - name: summary with commit msg
+          run: |
+                echo "Pushed from: $GITHUB_REF_NAME"
+                echo "Commit Messages: ${{ github.event.commits[0].message }}"
