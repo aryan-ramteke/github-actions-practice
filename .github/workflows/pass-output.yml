@@ -1,9 +1,9 @@
 name: passing outputs between jobs
 
 on:
-    push:
-        branches: [main]
-
+    # push:
+    #     branches: [main]
+    workflow_dispatch
 
 jobs:
     todays-date:

@@ -1,0 +1,15 @@
+name: conditionals
+
+on:
+    push:
+        branches: [main]
+
+jobs:
+    condition:
+        name: conditional
+        runs-on: ubuntu-latest
+        steps:
+                - name: when main branch
+                  if: github.head_ref == 'main'
+                  run: |
+                        echo "Running due to $GITHUB_REF_HEAD"
