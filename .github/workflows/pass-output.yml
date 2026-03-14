@@ -1,0 +1,25 @@
+name: passing outputs between jobs
+
+on:
+    push:
+        branches: [main]
+
+
+jobs:
+    todays-date:
+        # name: todays-date
+        runs-on: ubuntu-latest
+        outputs:
+            date: ${{ steps.date }}
+        steps:
+            - name: print today's date
+              id: date
+              run: date
+
+    reads-output:
+        needs: [todays-date]
+        runs-on: ubuntu-latest
+        steps:
+        - name: read from first job
+          run: |
+                echo "First job output: ${{ needs.todays-date.outputs.date }}"
