@@ -15,7 +15,7 @@ jobs:
             - name: print today's date
               id: date
               run: |
-                  echo "date=$(date)" 
+                  echo "date=$(date)" >> $GITHUB_OUTPUT
 
     reads-output:
         needs: [todays-date]
