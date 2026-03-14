@@ -16,6 +16,6 @@ jobs:
                         eecho "Running due to push to $GITHUB_REF_NAME"
 
                 - name: if previous failed
-                  if: steps.main_branch.outcome == 'failed'
+                  if: steps.main_branch.conclusion == 'failed'
                   run: |
                         echo "running from upstream tasks!!"
