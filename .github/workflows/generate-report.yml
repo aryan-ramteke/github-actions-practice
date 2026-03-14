@@ -28,8 +28,9 @@ jobs:
                 name: report-artifact
                 path: reports/
 
-            - name: Display structure of downloaded files
-              run: ls -R
+            - name: Print content of file
+              run: |
+                    cat reports/test-report.txt
 
             # - name: Print-contents
               
