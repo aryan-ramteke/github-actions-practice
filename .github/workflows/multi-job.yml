@@ -1,0 +1,26 @@
+name: multi-dependent-job
+
+on:
+    push:
+        branches: [main]
+        
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Code build
+              run: echo "Building the app!!"
+
+    test:
+        needs: [build]
+        runs-on: ubuntu-latest
+        steps:
+            - name: Code test
+              run: echo "Running tests!!"
+
+    deploy:
+        runs-on: ubuntu-latest
+        needs: [test]
+        steps:
+            - name: Code deploy
+              run: echo "Deploying!!"
