@@ -19,3 +19,17 @@ jobs:
               with:
                 name: report-artifact
                 path: test-report.txt
+    print-report-content:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Download and print content of artifact
+              uses: actions/download-artifact@v8
+              with:
+                name: report-artifact
+                path: reports/
+
+            - name: Display structure of downloaded files
+              run: ls -R
+
+            # - name: Print-contents
+              
