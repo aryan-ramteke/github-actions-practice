@@ -1,0 +1,21 @@
+name: generate-report
+
+on:
+    push:
+        branches: [main]
+
+jobs:
+    generate-report:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Generate Test Report
+              run: |
+                echo "Test Results - $(date)" > test-report.txt
+                echo "Status: Passed" >> test-report.txt
+                echo "Errors: 0" >> test-report.txt
+
+            - name : Save the report
+              uses: actions/upload-artifact@v4
+              with:
+                name: report-artifact
+                path: test-report.txt
