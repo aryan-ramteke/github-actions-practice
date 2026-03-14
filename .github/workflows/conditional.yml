@@ -13,9 +13,9 @@ jobs:
                   id: main_branch
                   if: github.ref_name == 'main'
                   run: |
-                        echo "Running due to push to $GITHUB_REF_NAME"
+                        eecho "Running due to push to $GITHUB_REF_NAME"
 
                 - name: if previous failed
-                  if: steps.main_branch.outcome == 'success'
+                  if: steps.main_branch.outcome == 'failed'
                   run: |
                         echo "running from upstream tasks!!"
