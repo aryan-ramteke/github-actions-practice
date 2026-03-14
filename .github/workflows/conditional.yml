@@ -11,11 +11,12 @@ jobs:
         steps:
                 - name: when main branch
                   id: main_branch
+                  continue-on-error: true
                   if: github.ref_name == 'main'
                   run: |
                         eecho "Running due to push to $GITHUB_REF_NAME"
 
                 - name: if previous failed
-                  if: steps.main_branch.conclusion == 'failed'
+                  if: ${{ steps.main_branch.outcome == 'failure' }}
                   run: |
                         echo "running from upstream tasks!!"
