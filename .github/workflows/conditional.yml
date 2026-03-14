@@ -10,6 +10,12 @@ jobs:
         runs-on: ubuntu-latest
         steps:
                 - name: when main branch
+                  id: main_branch
                   if: github.ref_name == 'main'
                   run: |
                         echo "Running due to push to $GITHUB_REF_NAME"
+
+                - name: if previous failed
+                  if: steps.main_branch.outcome == 'success'
+                  run: |
+                        echo "running from upstream tasks!!"
