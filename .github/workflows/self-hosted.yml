@@ -1,9 +1,9 @@
 name: self-hosted Runner
 
 on:
-    push:
-        branches: [main]
-
+    # push:
+    #     branches: [main]
+    workflow_dispatch:
 jobs:
     print-info:
         runs-on: [self-hosted, my-linux-runner]
