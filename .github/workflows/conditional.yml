@@ -10,6 +10,6 @@ jobs:
         runs-on: ubuntu-latest
         steps:
                 - name: when main branch
-                  if: github.ref == 'main'
+                  if: true
                   run: |
-                        echo "Running due to $GITHUB_REF"
+                        echo "Running due to push to $GITHUB_REF"
