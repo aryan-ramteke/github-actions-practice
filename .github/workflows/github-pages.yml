@@ -3,8 +3,8 @@ name: gh-actions-pages
 on:
   push:
     branch: [main]
-    paths:
-      - "**.html"
+    #paths:
+    # - "**.html"
 permissions:
   contents: read
   pages: write
