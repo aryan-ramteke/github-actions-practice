@@ -24,7 +24,7 @@ jobs:
       - name: upload static page
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./portfolio.html
+          path: "./portfolio.html"
       - name: deploy static page
         id: deployment
         uses: actions/deploy-pages@v4
