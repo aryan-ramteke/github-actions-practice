@@ -1,9 +1,10 @@
 name: generate-report
 
 on:
-    push:
-        branches: [main]
-
+  workflow-dispatch:
+  #push:
+      #branches: [main]
+      
 jobs:
     generate-report:
         runs-on: ubuntu-latest

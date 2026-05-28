@@ -20,7 +20,7 @@ jobs:
           path: ./portfolio.html
       - name: deploy static page
         uses: actions/deploy-pages@v4
-        permissions:
+        permission:
           contents: read
           pages: write
           id-token: write
