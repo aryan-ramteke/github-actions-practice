@@ -13,6 +13,9 @@ permissions:
 jobs:
   host-page:
     runs-on: ubuntu_latest
+    environment:
+      name: github_url
+      url: ${{steps.deployment.outputs.page_url}}
     steps:
       - name: code checkout
         uses: actions/checkout@v4
@@ -23,4 +26,5 @@ jobs:
         with:
           path: ./portfolio.html
       - name: deploy static page
+        id: deployment
         uses: actions/deploy-pages@v4
