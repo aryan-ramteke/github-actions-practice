@@ -1,0 +1,26 @@
+name: gh-actions-pages
+
+on:
+  push:
+    branch: [main]
+    paths:
+      - *.html
+
+jobs:
+  host-page:
+    runs-on: ubuntu_latest
+    steps:
+      - name: code checkout
+        uses: actions/checkout@v4
+      - name: setup pages
+        uses: actions/configure-pages@v4
+      - name: upload static page
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./portfolio.html
+      - name: deploy static page
+        uses: actions/deploy-pages@v4
+        permissions:
+          contents: read
+          pages: write
+          id-token: write
