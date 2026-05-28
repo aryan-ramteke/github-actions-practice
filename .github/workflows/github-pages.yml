@@ -5,6 +5,10 @@ on:
     branch: [main]
     paths:
       - "**.html"
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
   host-page:
@@ -20,7 +24,3 @@ jobs:
           path: ./portfolio.html
       - name: deploy static page
         uses: actions/deploy-pages@v4
-        permission:
-          contents: read
-          pages: write
-          id-token: write
