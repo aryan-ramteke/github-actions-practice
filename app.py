@@ -10,7 +10,7 @@ data = {
     "Score": [95, 88, 92]
 }
 
-df = pd.DataFrame(data)
+df = pd.DataFrame(data) padadq
 
 print("\nDataFrame:")
 print(df)
