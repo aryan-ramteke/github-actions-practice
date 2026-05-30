@@ -20,5 +20,5 @@ jobs:
     steps:
       - run: echo "checkout code"
       - run: echo "Building ${{ inputs.app_name }} for ${{ inputs.environment }}"
-      - run: echo "Docker token is set: true"
+      - run: 'echo "Docker token is set: true"'
 
