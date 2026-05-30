@@ -1,19 +1,23 @@
-import requests
-import pandas as pd
+from flask import Flask
+import mysql.connector
+import os
 
-response = requests.get("https://api.github.com")
+app = Flask(__name__)
 
-print("GitHub API Status:", response.status_code)
+@app.route("/")
+def home():
+    try:
+        conn = mysql.connector.connect(
+            host=os.getenv("DB_HOST"),
+            user=os.getenv("DB_USER"),
+            password=os.getenv("DB_PASSWORD"),
+            database=os.getenv("DB_NAME")
+        )
 
-data = {
-    "Name": ["Aaryan", "John", "Alice"],
-    "Score": [95, 88, 92]
-}
+        return "Hello World! Connected to MySQL successfully."
 
-df = pd.DataFrame(data)
+    except Exception as e:
+        return f"Database connection failed: {str(e)}"
 
-print("\nDataFrame:")
-print(df)
 
-print("\nAverage Score:", df["Score"].mean())
-
+app.run(host="0.0.0.0", port=5000)
