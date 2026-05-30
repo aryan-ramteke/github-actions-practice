@@ -10,9 +10,17 @@ jobs:
     - name: code checkout
       uses: actions/checkout@v4
 
+    - name: Cache pip dependencies
+      uses: actions/cache@v4
+      with:
+        path: ~/.cache/pip # Use ~\AppData\Local\pip\Cache for Windows or ~/Library/Caches/pip for macOS
+        key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+        restore-keys: |
+                      ${{ runner.os }}-pip-
+
     - name: install dependencies
       run: |
-        pip install --no-cache-dir -r requirements.txt
+        pip install -r requirements.txt
 
     - name: run the flask app
       id: app
