@@ -30,7 +30,7 @@ jobs:
 
     - name: Build
       uses: docker/build-push-action@v7
-      if: ${{ github.ref_name != "main" }}
+      if: ${{ github.ref_name != 'main' }}
       with:
         context: .
         push: false
@@ -39,7 +39,7 @@ jobs:
           aryan5/app:sha-${{ env.SHORT_SHA  }}
 
     - name: Build and push
-      if: ${{ github.ref_name == "main"  }}
+      if: ${{ github.ref_name == 'main'  }}
       uses: docker/build-push-action@v7
       with:
         context: .
