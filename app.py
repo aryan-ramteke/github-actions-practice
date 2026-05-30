@@ -16,3 +16,4 @@ print("\nDataFrame:")
 print(df)
 
 print("\nAverage Score:", df["Score"].mean())
+
