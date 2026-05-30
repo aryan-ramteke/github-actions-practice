@@ -1,7 +1,7 @@
 name: gh-actions-pages
 
 on:
-  push:
+  #push:
     workflow_dispatch:
     #branch: [main]
     #paths:
