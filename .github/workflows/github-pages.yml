@@ -2,7 +2,8 @@ name: gh-actions-pages
 
 on:
   push:
-    branch: [main]
+    workflow_dispatch:
+    #branch: [main]
     #paths:
     # - "**.html"
 permissions:
