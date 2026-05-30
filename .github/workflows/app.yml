@@ -1,0 +1,34 @@
+name: app
+
+on:
+  #push:
+  workflow_dispatch:
+
+jobs:
+  app-run:
+    runs-on: ubuntu-latest
+    steps:
+    - name: code checkout
+      uses: actions/checkout@v4
+
+    - name: Cache pip dependencies
+      uses: actions/cache@v4
+      with:
+        path: ~/.cache/pip # Use ~\AppData\Local\pip\Cache for Windows or ~/Library/Caches/pip for macOS
+        key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+        restore-keys: |
+                      ${{ runner.os }}-pip-
+
+    - name: install dependencies
+      run: |
+        pip install -r requirements.txt
+
+    - name: run the flask app
+      id: app
+      run: |
+        python app.py
+
+    - name: script execution check
+      if: ${{ steps.app.outcome == 'failure' }}
+      run: |
+        exit 1

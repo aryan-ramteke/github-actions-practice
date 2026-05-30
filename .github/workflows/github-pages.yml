@@ -1,0 +1,31 @@
+name: gh-actions-pages
+
+on:
+  #push:
+    workflow_dispatch:
+    #branch: [main]
+    #paths:
+    # - "**.html"
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  host-page:
+    runs-on: ubuntu-latest
+    environment:
+      name: github_url
+      url: ${{steps.deployment.outputs.page_url}}
+    steps:
+      - name: code checkout
+        uses: actions/checkout@v4
+      - name: setup pages
+        uses: actions/configure-pages@v4
+      - name: upload static page
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: "."
+      - name: deploy static page
+        id: deployment
+        uses: actions/deploy-pages@v4
