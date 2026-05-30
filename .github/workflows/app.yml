@@ -1,10 +1,10 @@
-name: flask-app
+name: app
 
 on:
   push:
 
 jobs:
-  run-flask-app:
+  app-run:
     runs-on: ubuntu-latest
     steps:
     - name: code checkout

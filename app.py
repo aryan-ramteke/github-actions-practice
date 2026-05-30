@@ -1,15 +1,18 @@
-from flask import Flask, render_template
-app = Flask(__name__)
+import requests
+import pandas as pd
 
+response = requests.get("https://api.github.com")
 
-@app.route('/')
-def hello_world():
-    return render_template('index.html')
+print("GitHub API Status:", response.status_code)
 
+data = {
+    "Name": ["Aaryan", "John", "Alice"],
+    "Score": [95, 88, 92]
+}
 
-@app.route('/health')
-def health():
-    return 'Server is up and running'
+df = pd.DataFrame(data)
 
+print("\nDataFrame:")
+print(df)
 
-app.run(debug=True, host='0.0.0.0', port=5000)
+print("\nAverage Score:", df["Score"].mean())
