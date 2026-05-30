@@ -1,0 +1,15 @@
+name: build caller
+
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  use-build:
+    runs-on: ubuntu-latest
+    uses: ./.github/workflow/resuable-build.yml
+    with:
+      app_name: "my-web-app"
+      environment: "producion"
+    secrets:
+      docker_token: ${{ secrets.DOCKER_TOKEN }}
