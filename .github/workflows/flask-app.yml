@@ -17,7 +17,7 @@ jobs:
     - name: run the flask app
       id: app
       run: |
-       sudo python app.py
+        python app.py
 
     - name: script execution check
       if: ${{ steps.app.outcome == 'failure' }}
